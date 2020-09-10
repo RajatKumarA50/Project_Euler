@@ -3,30 +3,31 @@
 
 public class Q7 {
 
-	public static void main(String[] args) 
-	{
-		int counter = 0;
-        int primeNum = 0;
+	static int N = 10001;
 
-        for (int num = 2; num < 10000000; num++) {
-            boolean isPrime = true;
-            for (int factor = 2; factor < num; factor++) {
+    private static boolean isOddPrime(long x) {
 
-                if (num % factor == 0) {
-                    isPrime = false;
+        for ( int i = 3 ; i*i <= x ; i+=2 ) {
+            if ( x % i == 0 ) {
+                return false;
+            }               
+        }
+        return true;
+    }
+
+    public static void main(String[] args)  {
+        
+        int x;
+        int i = 2;      // 3 is the 2nd prime number
+        for ( x = 3 ; ; x+=2 ) {
+            if ( isOddPrime(x) ) {              
+                if ( i == N )
                     break;
-                }
-            }
-            if (isPrime) {
-                primeNum = num;
-                counter++;
-            }
-            if (counter == 10001) {
-                break;
+                i++;
             }
         }
-        System.out.println(primeNum);
+        System.out.println(x);
 
-	}
+            }
 
 }
