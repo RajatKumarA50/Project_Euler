@@ -6,17 +6,32 @@
 public class Q6 
 {
 
-	public static void main(String[] args)
-    {
-        int sum1=0,sum2=0,diff=0;
-        for(int i=1;i<=100;i++)
-        {
-        	sum2=sum2+i;
-        	sum1=sum1+(i*i);
-        }
-        sum2=sum2*sum2;
-        diff=sum2-sum1;
-        System.out.println(diff);
-        
-    }
+	static int Square_Diff(int n){ 
+		  
+		int l, k, m; 
+		    // Sum of the squares of the 
+		    // first n natural numbers is 
+		    l = (n * (n + 1) * (2 * n + 1)) / 6; 
+		      
+		    // Sum of n naturals numbers 
+		    k = (n * (n + 1)) / 2; 
+		  
+		    // Square of k 
+		    k = k * k; 
+		      
+		    // Differences between l and k 
+		    m = Math.abs(l - k); 
+		      
+		    return m; 
+		  
+		} 
+		  
+		
+		public static void main(String s[]) 
+		{ 
+		    int n = 100; 
+		    System.out.println(Square_Diff(n));      
+		      
+		} 
+
 }
