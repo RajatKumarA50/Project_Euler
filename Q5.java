@@ -4,17 +4,28 @@
 public class Q5 
 {
 
-	public static void main(String[] args)
-    {
-		long maxNumber = Long.MAX_VALUE;
-        for (long n = 21; n < maxNumber; n++) 
-        {
-            if (n % 20 == 0 && n % 19 == 0 && n % 17 == 0 && n % 16 == 0 && n % 13 == 0 && n % 12 == 0 && n % 11 == 0
-                    && n % 9 == 0 && n % 7 == 0 && n % 5 == 0 && n % 3 == 0 && n % 2 == 0) {
-                System.out.println(n);
-                break;
-            }
-        }
-    
-    }
+	static long gcd(long a, long b) 
+	{ 
+	   if(a%b != 0)  
+	      return gcd(b,a%b); 
+	   else 
+	      return b; 
+	} 
+	  
+	// Function returns the lcm of first n numbers 
+	static long lcm(long n) 
+	{ 
+	    long ans = 1;     
+	    for (long i = 1; i <= n; i++) 
+	        ans = (ans * i)/(gcd(ans, i)); 
+	    return ans; 
+	} 
+	   
+	// Driver program to test the above function 
+	public static void main(String []args)  
+	{ 
+	    long n = 20; 
+	    System.out.println(lcm(n)); 
+	  
+	} 
 }
